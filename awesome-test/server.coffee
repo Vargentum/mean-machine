@@ -18,8 +18,8 @@ adminRouter.get '/', (req, res) ->
   res.send 'Admin panel'
   return
 
-adminRouter.get '/users', (req, res) ->
-  res.send 'Users list'
+adminRouter.get '/users/:name', (req, res) ->
+  res.send 'hello ' + req.params.name
   return
 
 adminRouter.get '/posts', (req, res) ->
