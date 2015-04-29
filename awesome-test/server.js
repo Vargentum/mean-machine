@@ -8,3 +8,20 @@ app.get('/', function(req, res) {
 
 app.listen(1337);
 console.log('1337 is the magic port');
+
+
+var adminRouter = express.Router();
+
+adminRouter.get('/', function(req, res) {
+  res.send('Admin panel');
+});
+
+adminRouter.get('/users', function (req, res) {
+  res.send('Users list');
+});
+
+adminRouter.get('/posts', function(req, res) {
+  res.send('Posts list');
+})
+
+app.use('/admin', adminRouter)
