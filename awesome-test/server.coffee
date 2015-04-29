@@ -14,6 +14,15 @@ adminRouter.use (req, res, next) ->
   next()
   return
 
+
+adminRouter.param 'name', (req, res, next, name) ->
+  console.log 'Validation of '+name+' is in progress.'
+
+  req.name = name
+  next()
+  return
+
+
 adminRouter.get '/', (req, res) ->
   res.send 'Admin panel'
   return
