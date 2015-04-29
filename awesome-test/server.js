@@ -12,6 +12,11 @@ console.log('1337 is the magic port');
 
 var adminRouter = express.Router();
 
+adminRouter.use(function(req, res, next) {
+  console.log(req.method, req.url);
+  next();
+});
+
 adminRouter.get('/', function(req, res) {
   res.send('Admin panel');
 });
