@@ -5,7 +5,6 @@ app.get '/', (req, res) ->
   res.sendFile path.join(__dirname + '/index.html')
   return
 app.listen 1337
-console.log '1337 is the magic port'
 
 adminRouter = express.Router()
 
@@ -36,3 +35,13 @@ adminRouter.get '/posts', (req, res) ->
   return
 
 app.use '/admin', adminRouter
+
+
+app.route '/login'
+  .get (req, res) ->
+    res.send('this is the login form')
+    return
+  .post (req, res) ->
+    console.log 'login form processing'
+    res.send('processing the login form')
+    return
