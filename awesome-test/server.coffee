@@ -1,6 +1,10 @@
 express = require('express')
 app = express()
 path = require('path')
+
+mongoose = require('mongoose')
+mongoose.connect('mongodb://localhost/test')
+
 app.get '/', (req, res) ->
   res.sendFile path.join(__dirname + '/index.html')
   return
